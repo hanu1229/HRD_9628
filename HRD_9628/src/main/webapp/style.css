@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+* {
+	/* border : solid 1px red; */
+	box-sizing : border-box;
+	font-size : 16px;
+}
+
+body {
+	margin : 0px;
+}
+
+header {
+	padding : 20px 0px;
+	text-align : center;
+	background-color : blue;
+	color : white;
+	font-size : 1.5rem;
+	font-weight : bold; 
+}
+
+nav {
+	padding : 10px 0px;
+	background-color : #87ceeb;
+}
+
+section {
+	width : 100%;
+	height : 800px;
+	background-color : lightgrey;
+}
+
+footer {
+	padding : 20px 0px;
+	text-align : center;
+	background-color : blue;
+	color : white;
+	font-size : 1rem;
+	font-weight : bold;
+}
+
+ul {
+	margin : 0px;
+	padding : 0px;
+	display : flex;
+	background-color : #87ceeb;
+}
+
+ul > li {
+	padding-left : 40px;
+	list-style-type: none;
+}
+
+a {
+	color : white;
+	text-decoration : none;
+	font-weight : bold;
+}
+
+.wrap {
+	width : 100%;
+	height : 100%;
+}
+
+.section_title {
+	padding : 20px 0px;
+	text-align : center;
+	font-size : 1.5rem;
+}
+
+/* index.jsp start */
+.section_index_content {
+	padding : 0px 20px;
+}
+/* index.jsp end */
+
+
+/* registration.jsp start */
+.section_registration_content > table {
+	margin : 0px auto;
+}
+.first_cell {
+	text-align : center;
+	font-weight : bold;
+}
+.second_cell {
+	width : 600px;
+}
+.second_cell > input {
+	width : 120px;
+}
+/* registration.jsp end */
+
+/* inquiry.jsp start */
+.section_inquiry_content > table {
+	margin : 0px auto;
+}
+/* inquiry.jsp end */
