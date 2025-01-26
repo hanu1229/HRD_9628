@@ -94,5 +94,13 @@ a {
 /* inquiry.jsp start */
 .section_inquiry_content > table {
 	margin : 0px auto;
+	text-align : center;
 }
 /* inquiry.jsp end */
+
+/* sales.jsp start */
+.section_sales_content > table {
+	margin : 0px auto;
+	text-align : center;
+}
+/* sales.jsp end */

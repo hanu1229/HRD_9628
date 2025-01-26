@@ -11,19 +11,22 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/management")
-public class ManagementController extends HttpServlet {
+@WebServlet("/management/sales")
+public class SalesController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(">> doGet 실행");
+		System.out.println(">> Sales doGet 실행");
 		
 		ObjectMapper mapper = new ObjectMapper();
-		ArrayList<MemberListDto> result = ManagementDao.getInstance().findAll();
+		ArrayList<SalesDto> result = ManagementDao.getInstance().salesAll();
+		System.out.println(">> " + result);
 		String jsonResult = mapper.writeValueAsString(result);
-		resp.setContentType("Application/json");
+		System.out.println(">> jsonResult : " + jsonResult);
+		resp.setContentType("application/json");
 		resp.getWriter().print(jsonResult);
 		
-		System.out.println(">> doGet 끝");
+		System.out.println(">> sales doGet 끝");
 	}
+	
 }

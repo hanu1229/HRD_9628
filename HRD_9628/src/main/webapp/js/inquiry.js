@@ -12,13 +12,13 @@ let _findAll = () => {
 		data.forEach(obj => {			
 			html += `
 			<tr>
-				<td>${data.custno}</td>
-				<td>${data.custname}</td>
-				<td>${data.phone}</td>
-				<td>${data.address}</td>
-				<td>${data.joindate}</td>
-				<td>${data.grade}</td>
-				<td>${data.city}</td>
+				<td style = "width : 100px"><a>${obj.custno}</a></td>
+				<td style = "width : 100px">${obj.custname}</td>
+				<td style = "width : 150px">${obj.phone}</td>
+				<td style = "width : 300px">${obj.address}</td>
+				<td style = "width : 150px">${obj.joindate}</td>
+				<td style = "width : 150px">${obj.grade}</td>
+				<td style = "width : 150px">${obj.city}</td>
 			</tr>
 			`;
 		});
