@@ -11,7 +11,7 @@ public class ManagementDao {
 	private Connection conn;
 	private String dburl = "jdbc:mysql://localhost:3306/hrd";
 	private String dbuser = "root";
-	private String dbpassword = "1234";
+	private String dbpassword = "hanu1229";
 	
 	// singleton start
 	private static ManagementDao instance = new ManagementDao();
@@ -62,6 +62,28 @@ public class ManagementDao {
 	}
 	
 	/**
+	 * 회원 개별 조회 
+	*/
+	public MemberListDto find(int custno) {
+		MemberListDto result = new MemberListDto();
+		try {
+			String sql = "select * from MEMBER_TBL_02 where CUSTNO = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, custno);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				result.setCustno(rs.getInt("custno")); result.setCustname(rs.getString("custname"));
+				result.setPhone(rs.getString("phone")); result.setAddress(rs.getString("address"));
+				result.setJoindate(rs.getString("joindate")); result.setGrade(rs.getString("grade"));
+				result.setCity(rs.getString("city"));
+			}
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return result;
+	}
+	
+	/**
 	 * 회원매출 조회 
 	*/
 	public ArrayList<SalesDto> salesAll() {
@@ -93,6 +115,43 @@ public class ManagementDao {
 			System.out.println(e);
 		}
 		return result;
+	}
+	
+	/**
+	 * 회원등록 
+	*/
+	public boolean create(MemberListDto memberDto) {
+		try { // insert into member_tbl_02 values(100001, '김행복', '010-1111-2222', '서울 동대문구 휘경1동', '20151202', 'A', '01');
+			String sql = "insert into MEMBER_TBL_02 values (?, ?, ?, ?, ?, ?, ?);";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, memberDto.getCustno()); ps.setString(2, memberDto.getCustname()); ps.setString(3, memberDto.getPhone());
+			ps.setString(4, memberDto.getAddress()); ps.setString(5, memberDto.getJoindate()); ps.setString(6, memberDto.getGrade());
+			ps.setString(7, memberDto.getCity());
+			int count = ps.executeUpdate();
+			if(count == 1) { return true; }
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	
+	/**
+	 * 회원정보 수정 
+	*/
+	public boolean update(MemberListDto memberDto) {
+		try {
+			String sql = "update MEMBER_TBL_02 set CUSTNO = ?, CUSTNAME = ?, PHONE = ?, ADDRESS = ?, JOINDATE = ?, GRADE = ?, CITY = ? "
+					+ "where CUSTNO = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, memberDto.getCustno()); ps.setString(2, memberDto.getCustname()); ps.setString(3,  memberDto.getPhone());
+			ps.setString(4, memberDto.getAddress()); ps.setString(5, memberDto.getJoindate()); ps.setString(6, memberDto.getGrade());
+			ps.setString(7, memberDto.getCity()); ps.setInt(8, memberDto.getCustno());
+			int count = ps.executeUpdate();
+			if(count == 1) { return true; }
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return false;
 	}
 	
 }

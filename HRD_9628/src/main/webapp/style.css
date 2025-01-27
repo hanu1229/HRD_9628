@@ -104,3 +104,9 @@ a {
 	text-align : center;
 }
 /* sales.jsp end */
+
+/* info-update.jsp start */
+.section_info_update_content > table {
+	margin : 0px auto;
+}
+/* info-update.jsp end */

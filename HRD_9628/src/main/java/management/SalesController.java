@@ -14,9 +14,10 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/management/sales")
 public class SalesController extends HttpServlet {
 	
+	/** 회원매출조회 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(">> Sales doGet 실행");
+		System.out.println(">> SaleController 회원매출조회(doGet) 끝");
 		
 		ObjectMapper mapper = new ObjectMapper();
 		ArrayList<SalesDto> result = ManagementDao.getInstance().salesAll();

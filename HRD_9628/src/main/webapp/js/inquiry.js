@@ -12,7 +12,7 @@ let _findAll = () => {
 		data.forEach(obj => {			
 			html += `
 			<tr>
-				<td style = "width : 100px"><a>${obj.custno}</a></td>
+				<td style = "width : 100px"><a href = "info-update.jsp?custno=${obj.custno}">${obj.custno}</a></td>
 				<td style = "width : 100px">${obj.custname}</td>
 				<td style = "width : 150px">${obj.phone}</td>
 				<td style = "width : 300px">${obj.address}</td>
