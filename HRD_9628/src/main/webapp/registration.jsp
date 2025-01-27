@@ -18,35 +18,49 @@
 					<tbody>
 						<tr>
 							<td class = "first_cell">회원번호(자동발행)</td>
-							<td class = "second_cell"><input type = "search"/></td>
+							<td class = "second_cell">
+								<input id = "custno_input" readonly type = "search"/>
+							</td>
 						</tr>
 						<tr>
 							<td class = "first_cell">회원성명</td>
-							<td class = "second_cell"><input type = "search"/></td>
+							<td class = "second_cell">
+								<input id = "custname_input" type = "search"/>
+							</td>
 						</tr>
 						<tr>
 							<td class = "first_cell">회원전화</td>
-							<td class = "second_cell"><input style = "width : 200px" type = "search"/></td>
+							<td class = "second_cell">
+								<input id = "phone_input" style = "width : 200px" type = "search"/>
+							</td>
 						</tr>
 						<tr>
 							<td class = "first_cell">회원주소</td>
-							<td class = "second_cell"><input style = "width : 400px" type = "search"/></td>
+							<td class = "second_cell">
+								<input id = "address_input" style = "width : 400px" type = "search"/>
+							</td>
 						</tr>
 						<tr>
 							<td class = "first_cell">가입일자</td>
-							<td class = "second_cell"><input type = "search"/></td>
+							<td class = "second_cell">
+								<input id = "joindate_input" type = "search"/>
+							</td>
 						</tr>
 						<tr>
 							<td class = "first_cell">고객등급[A:VIP,B:일반,C:직원]</td>
-							<td class = "second_cell"><input type = "search"/></td>
+							<td class = "second_cell">
+								<input id = "grade_input" type = "search"/>
+							</td>
 						</tr>
 						<tr>
 							<td class = "first_cell">도시코드</td>
-							<td class = "second_cell"><input type = "search"/></td>
+							<td class = "second_cell">
+								<input id = "city_input" type = "search"/>
+							</td>
 						</tr>
 						<tr>
 							<td colspan = "2" style = "text-align : center">
-								<button>등 록</button>
+								<button onclick = "_create()">등 록</button>
 								<button>조 회</button>
 							</td>
 						</tr>
@@ -55,6 +69,7 @@
 			</div>
 		</section>
 		<jsp:include page = "footer.jsp"/>
-		
+		<script src = "./js/registration.js"></script>
+		<script>autoCustno()</script>
 	</body>
 </html>

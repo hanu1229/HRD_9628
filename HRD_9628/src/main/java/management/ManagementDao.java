@@ -11,7 +11,7 @@ public class ManagementDao {
 	private Connection conn;
 	private String dburl = "jdbc:mysql://localhost:3306/hrd";
 	private String dbuser = "root";
-	private String dbpassword = "hanu1229";
+	private String dbpassword = "1234";
 	
 	// singleton start
 	private static ManagementDao instance = new ManagementDao();
